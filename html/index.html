@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!-- Viewport用户可见网页内容区域 宽度等于设备宽度，初始缩放比例为100%-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recipe Website</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- <nav> 定义导航区域 创建导航栏 -->
+<nav id="navbar">
+    <ul>
+<!-- 链接指向当前页面中 ID 为 home 的元素，Home 是用户可见的文本-->
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- <section> 定义文档中的独立区域 -->
+<section id="home">
+    <!-- <img> 标签用于插入图像 alt 提供替代文本 -->
+    <img src="../images/hero-image.png" alt="Main Dish" class="main-img">
+</section>
+
+<!-- 菜单部分，包含所有菜品缩略图 -->
+<section id="menu">
+    <h2>Menu</h2>
+    <div class="menu-container">  <!-- 菜单容器，用于排列所有菜品 -->
+        <!-- 菜品1 -->
+        <div class="menu-item">  <!-- 菜品的容器 -->
+            <a href="recipe1.html">  <!-- 点击后跳转到相应菜品的详细页面 -->
+                <img src="../images/dish1.png" alt="Dish 1">  <!-- 菜品缩略图路径，替代文本 -->
+                <div class="description">  <!-- 菜品描述的容器 -->
+                    <p>A vibrant salad bursting with fresh flavors and textures！</p>  <!-- 菜品的文字描述 -->
+                </div>
+            </a>
+        </div>
+
+        <!-- 菜品2 -->
+        <div class="menu-item">
+            <a href="recipe2.html">
+                <img src="../images/dish2.png" alt="Dish 2">
+                <div class="description">
+                    <p>Sweet and bubbly cherry soda with a refreshing fizz！</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- 联系我们 -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Telephone: 123-456-7890</p>
+    <p>Address: Forest Path 2, Espoo, Finland</p>
+    <p>Mail: Ying.Luo@metropolia.fi</p>
+    <!-- 设置图片路径及替代文本 -->
+    <img src="../images/photo1.png" alt="Our Photo1" class="contact-photo">
+    <img src="../images/photo2.png" alt="Our Photo2" class="contact-photo">
+</section>
+
+<!-- 点击导航栏时平滑滚动到相应部分 -->
+<script>
+    document.querySelectorAll('nav ul li a').forEach(anchor => {   <!-- 选择所有导航链接 -->
+        anchor.addEventListener('click', function(e) {   <!-- 为每个链接添加点击事件 -->
+            e.preventDefault();   <!-- 阻止默认的链接跳转行为 -->
+            document.querySelector(this.getAttribute('href')).scrollIntoView({  <!-- 获取链接的目标元素并平滑滚动 -->
+                behavior: 'smooth'   <!-- 设置滚动行为为平滑 -->
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+/* 全局样式 */
+body {
+    /*如果 Arial 不可用，浏览器会选择一个无衬线字体（sans-serif）作为备选*/
+    font-family: Arial, sans-serif;
+    /*margin 属性设置元素外部的间距 */
+    margin: 0;
+    /*padding 属性设置元素内部的间距 */
+    padding: 0;
+    /*border-box 元素的宽度和高度包括内边距（padding）和边框（border）。
+    更易于管理元素的尺寸，确保元素不会超出指定的宽度和高度。*/
+    box-sizing: border-box;
+}
+
+/* <nav> 元素应用以下样式 */
+nav {
+    /* position 属性设置元素的定位方式。
+    fixed 导航栏固定在浏览器窗口的一个位置，不会随着页面滚动而移动。 */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333; /* 深灰色 */
+    /* z-index 控制元素的堆叠顺序，1000确保其始终在最上层显示 */
+    z-index: 1000;
+}
+
+
+/* 确保这些样式只影响导航栏中的列表 */
+nav ul {
+    /* none:不显示列表项的默认标记（例如圆点或其他符号）*/
+    list-style: none;
+    /* 弹性盒子模型Flexbox,使得子元素（列表项 <li>）可以灵活地排列和调整布局 */
+    display: flex;
+    /* 控制主轴横向对齐。沿主轴居中对齐。导航栏中水平居中显示。*/
+    justify-content: center;
+    /* 设置内部边距。上下边距 15 像素，左右边距 0 像素。*/
+    padding: 15px 0;
+    margin: 0;
+}
+
+nav ul li {
+    /* 列表项会水平排列，而不是默认的垂直排列 */
+    display: inline;
+    /* 左右各 15 像素的外边距 */
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;    /* 链接文字的颜色为白色 */
+    text-decoration: none;     /* 取消链接的默认下划线 */
+    font-size: 18px;     /* 链接文字的字号为 18 像素 */
+}
+
+/* 为链接的悬停状态定义样式 */
+nav ul li a:hover {
+    color: #ff6347;  /* “番茄红”（Tomato） */
+}
+
+/* id="home" 的部分 */
+#home {
+    /* 使用 Flexbox 布局，尤其适合居中对齐和响应式设计 */
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: flex-start;   /* 垂直靠上对齐 */
+    /*height: 100vh; !* 占据整个视窗高度，确保 #home 部分在屏幕上全屏显示 *!*/
+    /*padding-top: 0; !* 确保上方没有额外的内边距 *!*/
+}
+
+
+.main-img {
+    width: 100%;   /* 占据其父容器的全部宽度 */
+    max-width: 1500px; /* 图片最大宽度 */
+    height: auto; /* 保持图片比例 */
+    /*object-fit: cover;  !* 图片会保持比例填满整个容器 *!*/
+}
+
+/* 菜品菜单部分（#menu）及其相关元素的样式 */
+#menu {
+    background-color: #EDEEE7;
+    /* 内边距，上下为 50 像素，左右为 50 像素 */
+    padding: 50px 50px;
+}
+
+h2 {
+    text-align: center;  /* 标题居中对齐 */
+    margin-bottom: 30px;  /* 底部外边距为 30 像素 */
+}
+
+/* 菜品图片加文字 排列样式 */
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;  /* 允许子元素（每个菜单项）在一行装不下时换行。 */
+    justify-content: center; /* 将所有菜单项在水平轴上居中对齐。 */
+    gap: 25px;  /* 每个菜单项之间间距为 25 像素 */
+}
+
+/* 菜品图片加文字整体样式 */
+.menu-item {
+    text-align: center;    /* 将每个菜单项的文本居中对齐 */
+    max-width: 450px;   /* 子元素（菜单项)的最大宽度为500像素 */
+    display: flex;    /* Flexbox 布局 */
+    justify-content: center;    /* 使图片和文字水平居中 */
+    align-items: center;     /* 使图片和文字垂直居中 */
+    flex-direction: column;    /* 内容垂直排列，即图片在上，文字在下 */
+}
+
+/* 菜品文字样式 */
+.menu-item a {
+    text-decoration: none; /* 去掉下划线 */
+    color: black; /* 设置文字颜色为黑色 */
+}
+
+/* 菜品图片样式 */
+.menu-item img {
+    display: block;   /* 图片块级显示，占据一行 */
+    margin: 0 auto;   /* 图片水平居中 */
+    width: 100%;    /* 图片宽度占据其父容器的 100% */
+    border-radius: 10px;    /* 图片设置圆角，圆角半径为 10 像素 */
+    /* 设置图片的平滑动画效果，当图片缩放时（如悬停时）过渡效果会持续 0.3 秒 */
+    transition: transform 0.3s ease;
+}
+
+.menu-item a:hover img { /* 在menu-item a时，鼠标 hover：悬停 ，调整图片img */
+    transform: scale(1.05); /* 调整放大比例 */
+}
+
+.description {
+    margin-top: 0; /* 调整说明与图片之间的间距，确保描述紧贴图片 */
+    transition: transform 0.3s ease; /* 让文本在悬停时平滑变化 */
+}
+
+.menu-item a:hover .description { /* 鼠标悬停时文字变色 */
+    color: purple;  /* 悬停时文字变为紫色 */
+}
+
+#contact {
+    background-color: #f4f4f4;
+    padding: 50px 20px;  /* 内边距，上下为 50 像素，左右为 20 像素 */
+    text-align: center;  /* 文本居中对齐 */
+}
+
+.photo-container {
+    /*display: flex; !* 使用flex布局 *!*/
+    justify-content: center; /* 居中对齐 */
+    margin-top: 20px; /* 照片上方的间距 */
+}
+
+.contact-photo {
+    width: 100px; /* 照片宽度 */
+    height: 100px; /* 照片高度 */
+    border-radius: 30%; /* 圆角边框 */
+    margin: 0 10px; /* 照片之间的间距 */
+    object-fit: cover; /* 保持图片比例并裁剪 */
+}
+
+/* 响应式设计 */
+@media (max-width: 1500px) {
+    .menu-item {
+        width: 50%; /* 调整宽度 */
+    }
+}
+
+/*@media (max-width: 768px) {*/
+/*    .menu-item {*/
+/*        width: 75%; !* 适应较小屏幕 *!*/
+/*    }*/
+/*}*/
+
+@media (max-width: 480px) {
+    .menu-item {
+        width: 100%; /* 移动端宽度适配 */
+    }
+}
+
+/* 固定导航栏保持在顶部 */
+html {
+    scroll-behavior: smooth; /* 平滑滚动 */
+}
